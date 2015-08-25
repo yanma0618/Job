@@ -2,7 +2,7 @@ package G;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//TODO:
 public class MissingNumber {
 	public static void main(String[] args){
 		int[] number={0, 1, 2,50 , 52, 75};
