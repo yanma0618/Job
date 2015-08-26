@@ -2,7 +2,7 @@ package G;
 
 import java.util.Stack;
 
-public class BSTsum {
+public class Two_Sum_V_BST {
 
 
 	public static void main(String[] args) {
