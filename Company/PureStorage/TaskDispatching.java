@@ -19,19 +19,20 @@ public class TaskDispatching {
 	Lock lock = new ReentrantLock();
 
 	public void trigger() {
-		isTrigger = true;
-		lock.lock();
+		isTrigger = true;//2
+		lock.lock(); //3
 		while (queue.isEmpty()) {
 			queue.poll().run();
 		}
 		lock.unlock();
+		isTrigger=false;
 	}
 
 	public void addTask(Task task) {
-		if (isTrigger) {
+		if (isTrigger) { 
 			task.run();
-		} else {
-			lock.lock();
+		} else {		//1
+			lock.lock();//4
 			queue.add(task);
 			lock.unlock();
 		}

@@ -38,6 +38,7 @@ public class Football {
 		return dp[score];
 		
 	}
+	
 	static void count(int score){
 		res=new ArrayList<List<Integer>>();
 		
