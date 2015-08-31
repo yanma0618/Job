@@ -2,7 +2,7 @@ package G;
 import java.util.Random;
 
 
-public class RandomNumber {
+public class Random_Number_with_Weight {
 	public static void main(String[] args){
 		double[] p=new double[3];
 		p[0]=0.3;p[1]=0.3;p[2]=0.4;

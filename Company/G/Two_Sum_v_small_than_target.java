@@ -2,7 +2,7 @@ package G;
 
 import java.util.Arrays;
 
-public class SumSmallThan {
+public class Two_Sum_v_small_than_target {
 	public static void main(String[] args){
 		int[] list={1,2,3,5,6,7};
 		Arrays.sort(list);
