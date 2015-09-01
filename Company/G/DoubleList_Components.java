@@ -1,5 +1,7 @@
 package G;
 
+import java.util.HashSet;
+
 
 
 public class DoubleList_Components {
@@ -9,27 +11,24 @@ public class DoubleList_Components {
 	}
 	
 	static int count(DoubleLinkNode[] list){
-		if(list==null|| list.length==0) return 0;
-		DoubleLinkNode head=null;
-		DoubleLinkNode tail=null;
 		int num=0;
-		int i=0;
-		while(i<list.length){
-			DoubleLinkNode tmp = list[i];
-			if(head!=null && head.pre==tmp){
-				tmp.next=head;
-				head.pre=tmp;
-				head=tmp;
-			}else if(tail!=null&&tail.next==tmp){
-				tail.next=tmp;
-				tmp.pre=tail;
-				tail=tmp;
-			}else{
-				head=tmp;
-				tail=tmp;
-				num++;
+		HashSet<DoubleLinkNode> set = new HashSet<DoubleLinkNode>();
+		for(DoubleLinkNode node:list){
+			set.add(node);
+		}
+		for(DoubleLinkNode node:list){
+			if(!set.contains(node)) continue;
+			DoubleLinkNode tmp=node.pre;
+			while(tmp!=null && set.contains(tmp)){
+				set.remove(tmp);
+				tmp=tmp.pre;
 			}
-			i++;
+			tmp=node.next;
+			while(tmp!=null && set.contains(tmp)){
+				set.remove(tmp);
+				tmp=tmp.next;
+			}
+			num++;
 		}
 		return num;
 	}
@@ -44,8 +43,8 @@ public class DoubleList_Components {
 		b.next=c;c.pre=b;
 		c.next=d;d.pre=c;
 		d.next=e;e.pre=d;
-		DoubleLinkNode[] list=new DoubleLinkNode[4];
-		list[0]=a; list[1]=d; list[2]=e; list[3]=b;
+		DoubleLinkNode[] list=new DoubleLinkNode[3];
+		list[0]=a; list[1]=c; list[2]=e; 
 		return list;
 	}
 }

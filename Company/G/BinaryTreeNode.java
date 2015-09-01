@@ -18,7 +18,9 @@ public  class BinaryTreeNode {
 		System.out.print(root.val+" ");
 		inorder(root.right);
 	}
-	
+	//     5
+	//   3    7
+	// 2   4    8 
 	public static BinaryTreeNode builtBST(){
 		BinaryTreeNode root=new BinaryTreeNode(5);
 		root.left=new BinaryTreeNode(3);
