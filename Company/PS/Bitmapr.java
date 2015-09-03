@@ -1,4 +1,4 @@
-package PureStorage;
+package PS;
 
 public class Bitmapr {
 	static int[][] bitmap;

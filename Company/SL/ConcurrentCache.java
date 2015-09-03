@@ -1,4 +1,4 @@
-package SumoLogic;
+package SL;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentCache {

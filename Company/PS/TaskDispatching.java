@@ -1,4 +1,4 @@
-package PureStorage;
+package PS;
 
 import java.util.LinkedList;
 import java.util.Queue;
