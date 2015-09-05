@@ -29,7 +29,6 @@ public class CircularArray<T> implements Iterable<T>{
 		items[covert(i)] = value;
 	}
 
-	@Override
 	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
 		return new CircularArrayIterator<T>(this);
@@ -43,13 +42,11 @@ public class CircularArray<T> implements Iterable<T>{
 		public CircularArrayIterator(CircularArray<TI> array){
 			_items=array.items;
 		}
-		@Override
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 			return _current<items.length-1;
 		}
 
-		@Override
 		public TI next() {
 			// TODO Auto-generated method stub
 			_current++;
@@ -57,7 +54,6 @@ public class CircularArray<T> implements Iterable<T>{
 			return item;
 		}
 
-		@Override
 		public void remove() {
 			// TODO Auto-generated method stub
 			throw new UnsupportedOperationException();
