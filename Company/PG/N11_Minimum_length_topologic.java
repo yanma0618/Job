@@ -10,61 +10,79 @@ public class N11_Minimum_length_topologic {
 	
 	public static void main(String[] args){
 		N11_Minimum_length_topologic s = new N11_Minimum_length_topologic();
-		String[] str={"gcd", "jd", "fcj"};
+		String[] str={"cba", "bd", "ce", "ed"};
 		System.out.print( s.convert(str));
 	}
 	
+	
+//	public ArrayList<ArrayList<Integer>> solution(String[] strs){
+//		ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+//		for (int i = 0; i < 26; i++) {
+//			adj.add(new ArrayList<Integer>());
+//		}
+//		for (int i = 0; i < strs.length; i++) {
+//			for (int j = 0; j < strs[i].length() - 1; j++) {
+//				int a = strs[i].charAt(j) - 'a';
+//				int b = strs[i].charAt(j + 1) - 'a';
+//				if (a == b) continue;
+//				adj.get(a).add(b);
+//			}
+//		}
+//		return adj;
+//	}
+	
 	 
 	public String convert(String[] strs){
-		HashMap<Character, Integer> map=new HashMap<Character,Integer>();
-		List<CPair> list=new ArrayList<CPair>();
+		HashMap<Character,Node> map=new HashMap<Character,Node>();
+		
 		for(String str:strs){
-			char pre=str.charAt(0);
-			if(!map.containsKey(pre)){
-				map.put(pre, 0);
+			char c=str.charAt(0);
+			if(!map.containsKey(c)){
+				map.put(c, new Node(c));
 			}
 			for(int i=1;i<str.length();i++){
-				
-				char cur=str.charAt(i);
-				list.add(new CPair(pre, cur));
-				
-				if(map.containsKey(cur)){
-					map.put(cur, map.get(cur)+1);
+				char tmp=str.charAt(i);
+				Node node=null;
+				if(map.containsKey(tmp)){
+					node=map.get(tmp);
 				}else{
-					map.put(cur, 1);
+					node=new Node(tmp);
+					map.put(tmp, node);
 				}
-				pre=cur;
-			}
+				node.dep++;
+				map.get(c).neighbors.add(node);
+				c=tmp;
+			}			
 		}
 		
-		Queue<Character> queue=new LinkedList<Character>();
 		StringBuilder sb=new StringBuilder();
+		Queue<Character> queue = new LinkedList<Character>();
 		for(Character c:map.keySet()){
-			if(map.get(c)==0) queue.add(c);
+			if(map.get(c).dep==0) queue.add(c);
 		}
-		
 		while(!queue.isEmpty()){
 			char c=queue.poll();
 			sb.append(c);
-			for(CPair cp:list){
-				if(cp.c1==c){
-					int num=map.get(cp.c2)-1;
-					map.put(cp.c2, num);
-					if(num==0){
-						queue.add(cp.c2);
-					}
+			for(Node n:map.get(c).neighbors){
+				n.dep--;
+				if(n.dep==0){
+					queue.add(n.c);
 				}
 			}
 		}
+		
 		return sb.toString();
 	}
 }
 
-class CPair{
-	char c1;
-	char c2;
-	public CPair(char c1, char c2){
-		this.c1=c1;
-		this.c2=c2;
+class Node{
+	char c;
+	List<Node> neighbors;
+	int dep;
+	public Node(char c){
+		this.c=c;
+		neighbors = new ArrayList<Node>();
+		dep=0;
 	}
 }
+
