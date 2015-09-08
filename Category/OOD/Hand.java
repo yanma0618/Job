@@ -9,7 +9,7 @@ public class Hand<T extends Card> {
 	public int score(){
 		int score=0;
 		for(T c:cards){
-			score+=c.value();
+			score+=c.card();
 		}
 		return score;
 	}

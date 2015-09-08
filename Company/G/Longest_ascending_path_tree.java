@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import HARD.maxHeapComparator;
 
-public class Longest_ascending_tree_path {
+public class Longest_ascending_path_tree {
 	static int max;
 	static List<Integer> res;
 	public static void main(String[] args){
