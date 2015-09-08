@@ -1,6 +1,6 @@
-package sort;
+package Sort;
 
-public class MergetoA {
+public class MergeTwoArr {
 	public void mergetoa(int[] a, int[] b){
 		int index=a.length-1;
 		int ib=b.length-1;

@@ -1,4 +1,4 @@
-package bit;
+package Bit;
 
 public class Binary {
 	public Binary(){}
