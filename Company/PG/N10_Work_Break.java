@@ -13,6 +13,7 @@ public class N10_Work_Break {
 		System.out.print(s.wordBreak("leetcode", wordDict));
 	}
 
+	//n2
 	public boolean wordBreak(String s, Set<String> wordDict) {
         boolean[] dp= new boolean[s.length()+1];
         dp[0]=true;
