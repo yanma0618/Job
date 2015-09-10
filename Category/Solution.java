@@ -4,7 +4,7 @@ import java.util.Random;
  * Definition for a binary tree node. public class TreeNode { int val; TreeNode
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class Solution{
 	public static void main(String[] args) {
 		Random r = new Random();
 		int i = 0;
@@ -12,6 +12,7 @@ public class Solution {
 			System.out.println(r.nextInt(3));
 			i++;
 		}
+		
 	}
 
 }
