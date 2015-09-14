@@ -2,7 +2,7 @@ package SL;
 
 import java.util.Scanner;
 
-public class Interval {
+public class Interval_Chai {
 	static void updateDown(boolean[] tree, int i, int s, int e) {
 		if (s != e && tree[i]) tree[i * 2 + 1] = tree[i * 2 + 2] = true;
 	}
@@ -10,7 +10,6 @@ public class Interval {
 		if (s != e && tree[i * 2 + 1] && tree[i * 2 + 2]) tree[i] = true;
 	}
 	static void insert(boolean[] tree, int i, int s, int e, int ns, int ne) {
-		updateDown(tree, i, s, e);
 		if (s == ns && e == ne) {
 			tree[i] = true;
 			return ;
@@ -25,7 +24,7 @@ public class Interval {
 		updateUp(tree, i, s, e);
 	}
 	static boolean query(boolean[] tree, int i, int s, int e, int ns, int ne) {
-		updateDown(tree, i, s, e);
+		if (tree[i]) return true;
 		if (s == ns && e == ne) {
 			return tree[i];
 		} 

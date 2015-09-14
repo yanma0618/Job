@@ -26,6 +26,7 @@ public class ConcurrentTTLCache<K,V extends IValue> {
 	//2 multi thread, for get method, lock(key)
 	ConcurrentHashMap<K,ReentrantLock> keyLock=new ConcurrentHashMap<K, ReentrantLock>();
 	public V get(K key){
+		//putIfAbsent is atomic
 		ReentrantLock lock = keyLock.putIfAbsent(key, new ReentrantLock());
 		lock.lock();
 		V value=null;

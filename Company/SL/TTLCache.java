@@ -1,11 +1,11 @@
 package SL;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ConcurrentCache {
+public class TTLCache {
 	private  ConcurrentHashMap<String,Entry> cache;
 	private long expiration;
 	
-	public ConcurrentCache(long expiration){
+	public TTLCache(long expiration){
 		cache=new ConcurrentHashMap<String,Entry> ();
 		this.expiration=expiration;
 	}
@@ -51,7 +51,7 @@ public class ConcurrentCache {
 	
 	public static void  main(String[] args){
 		long time = 2*1000;
-		ConcurrentCache c = new ConcurrentCache(time);
+		TTLCache c = new TTLCache(time);
 		c.put("a", "a");
 		try {
 			Thread.sleep(time+time);
