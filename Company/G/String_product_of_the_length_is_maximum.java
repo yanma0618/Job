@@ -2,7 +2,11 @@ package G;
 
 import java.util.HashMap;
 
-public class Two_Longest_String {
+/*
+ * Find a pair of Strings which don’t have characters in common, and the product of the length is maximum
+ */
+
+public class String_product_of_the_length_is_maximum {
 	public static void main(String[] args){
 		String[] strs={"abc","def","defg"};
 		strs=find(strs);
