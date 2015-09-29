@@ -55,8 +55,6 @@ public class ConcurrentTTLCache<K,V extends IValue> {
 			}
 			lock.unlock();
 		}
-		
-		
 		return value;
 		
 	}

@@ -8,7 +8,7 @@ public class DecodeEncode {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<String> strs=new ArrayList<String>();
-		strs.add("asfiji");
+		strs.add("abcdefghijk");
 		strs.add("sdf");
 		strs.add("a23r3#");
 		strs.add("sfg");
@@ -24,8 +24,12 @@ public class DecodeEncode {
 		List<String> res=new ArrayList<String>();
 		int i=0;
 		while(i<input.length()){
-			int len=input.charAt(i)-'0';
-			i+=2;
+			int len=0;
+			while(input.charAt(i)!='#'){
+				len=len*10 + (int)(input.charAt(i)-'0');
+				i++;
+			}
+			i++;
 			res.add(input.substring(i,i+len));
 			i=i+len;
 		}

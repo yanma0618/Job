@@ -4,7 +4,10 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-public class String_Different_Neighbor {
+/*
+ * 烙印小哥。 rearrange array，使得相邻两个字符是不一样的。
+ */
+public class Heap_String_Reaarange_Array {
 	
 	public String Solution(String s){
 		PriorityQueue<Word> queue=new PriorityQueue<Word>(s.length(),new Comparator<Word>(){
@@ -57,7 +60,7 @@ public class String_Different_Neighbor {
 	}
 	
 	public static void main(String[] args){
-		String_Different_Neighbor s=new String_Different_Neighbor();
+		Heap_String_Reaarange_Array s=new Heap_String_Reaarange_Array();
 		System.out.print(s.Solution("ssssaaa"));
 	}
 	

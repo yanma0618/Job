@@ -2,6 +2,9 @@ package G;
 
 import java.util.Arrays;
 
+/*
+ * 烙印大叔。 给一个array 和一个 target求出 array里有几组tuple相加是小于等于target的。
+ */
 public class Two_Sum_v_small_than_target {
 	public static void main(String[] args){
 		int[] list={1,2,3,5,6,7};
